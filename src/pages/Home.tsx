@@ -6,7 +6,6 @@ import { ArrowRight, Check } from "lucide-react";
 import palomaLogo from "figma:asset/31f930a355888a6b2f87c26a540ce31ce4ef9940.png";
 
 export default function Home() {
-  const [email, setEmail] = useState("");
 
   return (
     <div className="min-h-screen bg-[#0a0a0a]">
@@ -56,22 +55,12 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <div className="flex-1 max-w-md">
-                <div className="flex gap-3">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="h-12 bg-white/5 border-white/10 text-[#f5f1e8] placeholder:text-[#a8a29e]/40 focus:border-[#5b8db8] focus:ring-[#5b8db8]/20"
-                  />
-                  <Button
-                    className="h-12 px-6 bg-[#5b8db8] hover:bg-[#4a7c9e] text-white border-0"
-                  >
-                    Request demo
-                  </Button>
-                </div>
-              </div>
+              <Button
+                onClick={() => (window as any).navigateTo('demo')}
+                className="h-12 px-8 bg-[#5b8db8] hover:bg-[#4a7c9e] text-white border-0"
+              >
+                Request demo
+              </Button>
             </div>
 
             <p className="text-sm text-[#a8a29e]/50 mt-4">
@@ -280,12 +269,8 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="h-12 bg-white/5 border-white/10 text-[#f5f1e8] placeholder:text-[#a8a29e]/40 focus:border-[#5b8db8] focus:ring-[#5b8db8]/20 max-w-sm"
-              />
               <Button
+                onClick={() => (window as any).navigateTo('demo')}
                 className="h-12 px-8 bg-[#5b8db8] hover:bg-[#4a7c9e] text-white border-0 gap-2"
               >
                 Request demo

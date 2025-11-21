@@ -7,6 +7,14 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
+app.post('/api/contact', (req, res) => {
+  const { name, email, message } = req.body;
+
+  console.log(`${name} | ${email} | ${message}`);
+
+  res.json({ success: true, message: 'Contact form received' });
+});
+
 app.post('/api/demo-request', (req, res) => {
   const { firstName, lastName, email, phone, filingStatus, priorYear, notes, clientType } = req.body;
 

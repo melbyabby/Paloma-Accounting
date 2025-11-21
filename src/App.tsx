@@ -2,8 +2,9 @@ import { useState } from "react";
 import Home from "./pages/Home";
 import Demo from "./pages/Demo";
 import Login from "./pages/Login";
+import Contact from "./pages/Contact";
 
-type Page = "home" | "demo" | "login";
+type Page = "home" | "demo" | "login" | "contact";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>("home");
@@ -14,7 +15,7 @@ export default function App() {
   }
 
   if (currentPage === "demo") {
-    return <Demo />;
+    return <Contact />;
   }
 
   if (currentPage === "login") {
