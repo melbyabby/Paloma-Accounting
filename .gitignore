@@ -1,4 +1,4 @@
-# Dependencies
+2# Dependencies
 node_modules
 .pnp
 .pnp.js
@@ -9,7 +9,6 @@ coverage
 # Production
 dist
 build
-public
 
 # Misc
 .DS_Store
