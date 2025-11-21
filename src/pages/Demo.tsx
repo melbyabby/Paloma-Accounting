@@ -13,6 +13,15 @@ type Step = "select" | "intake" | "documents" | "agreements" | "payment" | "comp
 export default function Demo() {
   const [clientType, setClientType] = useState<ClientType>(null);
   const [step, setStep] = useState<Step>("select");
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    filingStatus: "Single",
+    priorYear: "Yes",
+    notes: ""
+  });
 
   const clientTypes = [
     {
@@ -48,6 +57,35 @@ export default function Demo() {
   const handleClientTypeSelect = (type: ClientType) => {
     setClientType(type);
     setStep("intake");
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value
+    });
+  };
+
+  const handleSubmitDemoRequest = async () => {
+    try {
+      const response = await fetch('http://localhost:3001/api/demo-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          clientType
+        })
+      });
+
+      if (response.ok) {
+        console.log('Demo request submitted successfully');
+        setStep("documents");
+      }
+    } catch (error) {
+      console.error('Error submitting demo request:', error);
+    }
   };
 
   if (step === "select") {
@@ -188,27 +226,54 @@ export default function Demo() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <Label htmlFor="firstName" className="text-black mb-2">First Name</Label>
-                    <Input id="firstName" className="bg-[#f5f5f7] border-black/10" />
+                    <Input
+                      id="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      className="bg-[#f5f5f7] border-black/10"
+                    />
                   </div>
                   <div>
                     <Label htmlFor="lastName" className="text-black mb-2">Last Name</Label>
-                    <Input id="lastName" className="bg-[#f5f5f7] border-black/10" />
+                    <Input
+                      id="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      className="bg-[#f5f5f7] border-black/10"
+                    />
                   </div>
                 </div>
 
                 <div>
                   <Label htmlFor="email" className="text-black mb-2">Email</Label>
-                  <Input id="email" type="email" className="bg-[#f5f5f7] border-black/10" />
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="bg-[#f5f5f7] border-black/10"
+                  />
                 </div>
 
                 <div>
                   <Label htmlFor="phone" className="text-black mb-2">Phone</Label>
-                  <Input id="phone" type="tel" className="bg-[#f5f5f7] border-black/10" />
+                  <Input
+                    id="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="bg-[#f5f5f7] border-black/10"
+                  />
                 </div>
 
                 <div>
                   <Label htmlFor="filingStatus" className="text-black mb-2">Filing Status</Label>
-                  <select id="filingStatus" className="w-full px-3 py-2 bg-[#f5f5f7] border border-black/10 rounded-md">
+                  <select
+                    id="filingStatus"
+                    value={formData.filingStatus}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 bg-[#f5f5f7] border border-black/10 rounded-md"
+                  >
                     <option>Single</option>
                     <option>Married Filing Jointly</option>
                     <option>Married Filing Separately</option>
@@ -218,7 +283,12 @@ export default function Demo() {
 
                 <div>
                   <Label htmlFor="priorYear" className="text-black mb-2">Did you file taxes last year?</Label>
-                  <select id="priorYear" className="w-full px-3 py-2 bg-[#f5f5f7] border border-black/10 rounded-md">
+                  <select
+                    id="priorYear"
+                    value={formData.priorYear}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 bg-[#f5f5f7] border border-black/10 rounded-md"
+                  >
                     <option>Yes</option>
                     <option>No</option>
                   </select>
@@ -226,7 +296,14 @@ export default function Demo() {
 
                 <div>
                   <Label htmlFor="notes" className="text-black mb-2">Anything else we should know?</Label>
-                  <Textarea id="notes" rows={4} className="bg-[#f5f5f7] border-black/10" placeholder="Optional" />
+                  <Textarea
+                    id="notes"
+                    rows={4}
+                    value={formData.notes}
+                    onChange={handleInputChange}
+                    className="bg-[#f5f5f7] border-black/10"
+                    placeholder="Optional"
+                  />
                 </div>
               </div>
 
@@ -239,7 +316,7 @@ export default function Demo() {
                   Back
                 </Button>
                 <Button
-                  onClick={() => setStep("documents")}
+                  onClick={handleSubmitDemoRequest}
                   className="bg-[#5b8db8] text-white hover:bg-[#4a7c9e]"
                 >
                   Continue
