@@ -75,7 +75,7 @@ export default function Home() {
             </div>
 
             <p className="text-sm text-[#a8a29e]/50 mt-4">
-              Launching Q1 2025
+              Launching Q1 2026
             </p>
           </motion.div>
         </div>

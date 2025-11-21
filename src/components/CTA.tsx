@@ -70,7 +70,7 @@ export function CTA() {
             viewport={{ once: true }}
             className="text-sm text-[#a8a29e]/60 mt-12"
           >
-            Launching Q1 2025
+            Launching Q1 2026
           </motion.p>
         </motion.div>
       </div>
