@@ -3,7 +3,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Textarea } from "../components/ui/textarea";
-import palomaLogo from "figma:asset/31f930a355888a6b2f87c26a540ce31ce4ef9940.png";
+import palomaLogo from "../assets/31f930a355888a6b2f87c26a540ce31ce4ef9940.png";
 
 export default function Contact() {
   const [formData, setFormData] = useState({

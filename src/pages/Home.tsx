@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { motion } from "motion/react";
 import { Button } from "../components/ui/button";
-import { Input } from "../components/ui/input";
 import { ArrowRight, Check } from "lucide-react";
-import palomaLogo from "figma:asset/31f930a355888a6b2f87c26a540ce31ce4ef9940.png";
+import palomaLogo from "../assets/31f930a355888a6b2f87c26a540ce31ce4ef9940.png";
 
 export default function Home() {
 
@@ -51,7 +49,7 @@ export default function Home() {
             </h1>
             
             <p className="text-xl md:text-2xl text-[#a8a29e] mb-12 max-w-2xl leading-relaxed">
-              One workflow for intake, billing, and data entry. Built for Practice CS, UltraTax, and Workpapers.
+              One workflow for intake, billing, and data entry. 
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -70,20 +68,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="relative border-t border-white/5">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 py-16">
-          <p className="text-sm text-[#a8a29e]/60 mb-8 tracking-wide uppercase">
-            Built for
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-40">
-            <div className="text-[#f5f1e8]/60">Practice CS</div>
-            <div className="text-[#f5f1e8]/60">UltraTax CS</div>
-            <div className="text-[#f5f1e8]/60">Workpapers CS</div>
-            <div className="text-[#f5f1e8]/60">Liscio</div>
-          </div>
-        </div>
-      </section>
 
       {/* Main Value Prop */}
       <section className="relative border-t border-white/5">
@@ -118,7 +102,7 @@ export default function Home() {
                 "Documents uploaded with checklists",
                 "Engagement letter e-signed",
                 "Payment collected upfront",
-                "Data auto-syncs to Practice CS"
+                "Data auto-syncs"
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-4 group">
                   <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full border border-[#5b8db8]/30 flex items-center justify-center group-hover:bg-[#5b8db8]/10 transition-colors">
@@ -167,10 +151,6 @@ export default function Home() {
               {
                 title: "Upfront billing",
                 desc: "Clear pricing, paid before work starts. Card and ACH payments built in."
-              },
-              {
-                title: "Practice CS sync",
-                desc: "Client data flows directly into Practice CS. No manual entry required."
               },
               {
                 title: "Works with your stack",
@@ -223,7 +203,7 @@ export default function Home() {
                 { num: "03", title: "Uploads documents", desc: "Guided checklist shows what's needed." },
                 { num: "04", title: "Signs agreements", desc: "E-sign engagement letter and POA." },
                 { num: "05", title: "Pays upfront", desc: "Card or ACH payment before work starts." },
-                { num: "06", title: "Auto-syncs", desc: "Everything lands in Practice CS automatically." }
+                { num: "06", title: "Auto-syncs", desc: "Everything lands in your Tax Software automatically." }
               ].map((step, index) => (
                 <motion.div
                   key={index}
