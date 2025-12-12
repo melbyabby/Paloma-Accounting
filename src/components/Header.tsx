@@ -1,7 +1,7 @@
 import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import palomaLogo from "figma:asset/31f930a355888a6b2f87c26a540ce31ce4ef9940.png";
+import palomaLogo from "../assets/paloma-logo-white.png";
 
 export function Header() {
   const navItems = ["Product", "Pricing", "Security", "About"];

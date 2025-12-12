@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Button } from "../components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
-import palomaLogo from "../assets/31f930a355888a6b2f87c26a540ce31ce4ef9940.png";
+import palomaLogo from "../assets/paloma-logo-white.png";
 
 export default function Home() {
 
